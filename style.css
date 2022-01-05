@@ -1,0 +1,118 @@
+*  {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: 'Roboto', sans-serif;
+  scroll-behavior: smooth;
+}
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.hero {
+  display: grid;
+  grid-template-columns: minmax(300px, 2fr) 3fr;
+  grid-auto-rows: 400px;
+  border-bottom: 1px solid #ddd;
+}
+.hero__info {
+  margin-left: 30px;
+  align-self: center;
+}
+.hero__title {
+  margin-bottom: 24px;
+  color: #333;
+  font-size: 40px;
+  font-weight: bold;
+}
+.hero__text {
+  margin-bottom: 24px;
+  color: #333;
+  font-size: 20px;
+}
+.hero__button {
+  padding: 12px 24px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+  border-radius: 20px;
+  border: none;
+  background-color: #fb8c00;
+  cursor: pointer;
+}
+.hero__imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  place-self: center;
+}
+.services_title, .menu__title {
+  margin: 24px 24px;
+  font-size: 25px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+}
+.services__content {
+  display: grid;
+  grid-template-columns: repeat(4 , minmax(75px, 200px));
+  grid-auto-rows: 1fr;
+  gap: 25px;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+.services__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.img--video {
+  grid-area: 1 / 1 / 3 / 3;
+}
+.menu__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 150px);
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 25px;
+}
+.conteiner--element {
+  position: relative;
+  padding: 5px;
+  border-top-left-radius: 40px;
+  background-color: antiquewhite;
+  place-items: center;
+}
+.menu__like {
+  position: absolute;
+  right: 5px;
+  top: 0px;
+  font-size: 20px;
+  color:darkgray;
+  cursor: pointer;
+}
+.like--active {
+  color: red;
+}
+.menu__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.menu__img:hover {
+  transform: scale(1.1);
+}
+@media (max-width:  600px) {
+  .hero {
+    grid-template-columns: minmax(300px, 500px);
+    justify-content: center;
+  }
+  .hero__imagen {
+    display: none;
+  }
+  .services__content {
+    grid-template-columns: repeat(auto-fit, minmax(75px, 100px));
+  }
+}
