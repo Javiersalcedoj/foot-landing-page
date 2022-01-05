@@ -1,3 +1,4 @@
+//logic para like
 const localStorageLike = localStorage.getItem('menuHomeLike_V1')
 
 let arraylike;
@@ -53,3 +54,75 @@ function updateLocalStorage (elemt) {
   const newLike = JSON.stringify(elemt);
   localStorage.setItem('menuHomeLike_V1', newLike)
 }
+
+//logica para video
+
+const parentVideo = document.querySelector('.services__content')
+const containerVideo = document.querySelector('.video--container');
+const imgVideo = document.querySelector('.video__img')
+const video = document.createElement('video');
+const iconPlay = document.querySelector('.video__play');
+const iconLoading = document.createElement('img');
+iconLoading.src= './Image/loading.png';
+iconLoading.alt= 'loading';
+iconLoading.className = 'video__loading';
+
+containerVideo.addEventListener('click', loadingVideo);
+
+video.addEventListener('click', () => {
+  if(video.paused === false) {
+    video.pause();
+    iconPlay.style = 'display: block;';
+  } else {
+    video.play();
+    iconPlay.style = 'display: none;';
+  }
+}) 
+
+function loadingVideo () {
+  iconPlay.style = 'display: none;';
+
+
+  video.src= './Video/video.mp4';
+  video.className='services__img img--video';
+  video.loop = true; 
+
+  containerVideo.removeEventListener('click', loadingVideo);
+  containerVideo.replaceChild(video, imgVideo);
+
+  video.addEventListener('loadstart', loadingIcon );
+
+  video.addEventListener('canplaythrough', canPlay)
+}
+
+function loadingIcon () {
+  containerVideo.appendChild(iconLoading);
+}
+
+function canPlay () {
+  video.removeEventListener('loadstart', loadingIcon);
+  iconLoading.remove();
+  video.play();
+  video.removeEventListener('canplaythrough', canPlay)
+}
+
+//logica para lazy loading img
+const option = {
+  rootMargin: '0px 0px 0px 0px',
+  threshold: 1,
+}
+const observer = new IntersectionObserver(callback, option)
+
+function callback(entries, observer) {
+  if (entries[0].isIntersecting) {
+    imgenesLazy.forEach(img =>{
+      const url = img.dataset.src;
+      img.src =  url;
+      img.style = 'background: none;'
+    })
+    observer.unobserve(img4);
+  }
+}
+const imgenesLazy = document.querySelectorAll('.menu__img');
+const img4 = document.querySelector('.img--4');
+observer.observe(img4);
