@@ -25,12 +25,12 @@ if (!localStorageLike) {
   arraylike =  JSON.parse(localStorageLike);
 }
 
-const toggleLike = document.querySelectorAll('span');
+const toggleLike = document.querySelectorAll('.menu__like');
 
 arraylike.map(e => {
   if (e.value === true) {
     const nodeLike = document.querySelector(`.like--${e.elemt}`);
-    nodeLike.className = `menu__like like--${e.elemt} like--active`
+    nodeLike.src = './assets/icons/liked.png'
   }
 })
 
@@ -40,9 +40,9 @@ toggleLike.forEach(like =>{
     const index = elemt[1].split('--')[1];
 
     if(arraylike[index].value) {
-      like.className = `menu__like like--${index}`
+      like.src = './assets/icons/like.png'
     } else {
-      like.className = `menu__like like--${index} like--active`
+      like.src = './assets/icons/liked.png'
     }
 
     arraylike[index].value = !arraylike[index].value;
@@ -63,7 +63,7 @@ const imgVideo = document.querySelector('.video__img')
 const video = document.createElement('video');
 const iconPlay = document.querySelector('.video__play');
 const iconLoading = document.createElement('img');
-iconLoading.src= './Image/loading.png';
+iconLoading.src= './assets/images/loading.png';
 iconLoading.alt= 'loading';
 iconLoading.className = 'video__loading';
 
@@ -83,7 +83,7 @@ function loadingVideo () {
   iconPlay.style = 'display: none;';
 
 
-  video.src= './Video/video.mp4';
+  video.src= './assets/video/video.mp4';
   video.className='services__img img--video';
   video.loop = true; 
 

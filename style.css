@@ -71,7 +71,7 @@ main {
 .video--container {
   position: relative;
   grid-area: 1 / 1 / 3 / 3;
-  background-image: url(./Image/video.jpg);
+  background-image: url(./assets/images/video.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -114,17 +114,12 @@ main {
   background-color: antiquewhite;
   place-items: center;
 }
-.menu__like {
+ .menu__like {
   position: absolute;
   right: 5px;
-  top: 0px;
-  font-size: 20px;
-  color:darkgray;
+  top: 5px;
   cursor: pointer;
   z-index: 1;
-}
-.like--active {
-  color: red;
 }
 .menu__img {
   width: 100%;
