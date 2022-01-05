@@ -82,7 +82,6 @@ video.addEventListener('click', () => {
 function loadingVideo () {
   iconPlay.style = 'display: none;';
 
-
   video.src= './assets/video/video.mp4';
   video.className='services__img img--video';
   video.loop = true; 
